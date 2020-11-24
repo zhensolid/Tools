@@ -13,7 +13,7 @@ NAME_BIN="rclone"
 # Description:       Enable rclone by daemon.
 ### END INIT INFO
 
-#NAME="gdjy"
+#NAME="gdjy" #rclone name名
 REMOTE='gdjy:/'
 LOCAL='/volume1/media/gyjy'
 
