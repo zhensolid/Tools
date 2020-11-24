@@ -10,7 +10,7 @@
 ### END INIT INFO
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
  
-REMOTE='gdd:/'
+REMOTE='gd:/'
 LOCAL='/volume1/media/gdd'
 REMOTE_1='gdjy:/'
 LOCAL_1='/volume1/media/gyjy'
@@ -18,7 +18,6 @@ CONFIG='/root/.config/rclone/rclone.conf'
 DEMO='rclone'
  
 [ -n "$REMOTE" ] || exit 1;
-[ -n "$REMOTE_1" ] || exit 1;
 [ -x "$(which fusermount)" ] || exit 1;
 [ -x "$(which $DEMO)" ] || exit 1;
  
@@ -34,7 +33,7 @@ start)
   mkdir -p $LOCAL
   rclone mount $REMOTE $LOCAL --config $CONFIG --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000 >/dev/null 2>&1 &
   sleep 3;
-    ps -ef |grep -v grep |grep -q "$REMOTE_1"
+  ps -ef |grep -v grep |grep -q "$REMOTE"
   [ $? -eq '0' ] && {
     DEMOPID="$(ps -C $DEMO -o pid= |head -n1 |grep -o '[0-9]\{1,\}')"
     [ -n "$DEMOPID" ] && echo "$DEMO already in running.[$DEMOPID]";
