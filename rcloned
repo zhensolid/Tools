@@ -70,8 +70,8 @@ do_stop(){
         echo -e "${Info} $NAME_BIN 未运行"
         RETVAL=1
     fi
-    fusermount -zuq $LOCAL >/dev/null 2>&1
-    fusermount -zuq $LOCAL1 >/dev/null 2>&1
+    fusermount -qzu $LOCAL >/dev/null 2>&1
+    fusermount -qzu $LOCAL1 >/dev/null 2>&1
 }
 do_status(){
     check_running
