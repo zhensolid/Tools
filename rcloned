@@ -39,15 +39,15 @@ do_start(){
     if [[ $? -eq 0 ]]; then
         echo -e "${Info} $NAME_BIN (PID ${PID}) 正在运行..." && exit 0
     else
-        fusermount -zuq $LOCAL >/dev/null 2>&1
+        fusermount -qzu $LOCAL >/dev/null 2>&1
         mkdir -p $LOCAL
-        #/usr/bin/rclone mount $REMOTE $LOCAL --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000 >/dev/null 2>&1 &
-        rclone mount $REMOTE $LOCAL --config $CONFIG --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000 >/dev/null 2>&1 &
-        sleep 10s
-        fusermount -zuq $LOCAL_1 >/dev/null 2>&1
+        /usr/bin/rclone mount $REMOTE $LOCAL --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000 >/dev/null 2>&1 &
+        #rclone mount $REMOTE $LOCAL --config $CONFIG --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000 >/dev/null 2>&1 &
+        sleep 5s
+        fusermount -qzu $LOCAL_1 >/dev/null 2>&1
         mkdir -p $LOCAL_1
-        #/usr/bin/rclone mount $REMOTE_1 $LOCAL_1 --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000 >/dev/null 2>&1 &
-        rclone mount $REMOTE_1 $LOCAL_1 --config $CONFIG --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000 >/dev/null 2>&1 &
+        /usr/bin/rclone mount $REMOTE_1 $LOCAL_1 --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000 >/dev/null 2>&1 &
+        #rclone mount $REMOTE_1 $LOCAL_1 --config $CONFIG --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000 >/dev/null 2>&1 &
         check_running
         if [[ $? -eq 0 ]]; then
             echo -e "${Info} $NAME_BIN 启动成功 !"
