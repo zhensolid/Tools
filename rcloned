@@ -15,11 +15,11 @@ NAME_BIN="rclone"
 
 #NAME="gdjy" #rclone name名
 REMOTE='gdjy:/'
-LOCAL='/volume1/media/gyjy'
+LOCAL='/volume1/media/gdjy'
 
 #NAME_1="gd"
 REMOTE_1='gd:/'
-LOCAL_1='/volume1/media/gdd'
+LOCAL_1='/volume1/media/gd'
 
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
 Info="${Green_font_prefix}[信息]${Font_color_suffix}"
