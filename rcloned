@@ -14,11 +14,11 @@ NAME_BIN="rclone"
 ### END INIT INFO
 
 #NAME="gdjy" #rclone name名
-REMOTE='gj:/'
+REMOTE='jy:/'
 LOCAL='/volume1/media/gdjy'
 
 #NAME_1="gd"
-REMOTE_1='gd:/'
+REMOTE_1='gdd:/'
 LOCAL_1='/volume1/media/gd'
 
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
@@ -71,7 +71,7 @@ do_stop(){
         RETVAL=1
     fi
     fusermount -qzu $LOCAL >/dev/null 2>&1
-    fusermount -qzu $LOCAL1 >/dev/null 2>&1
+    fusermount -qzu $LOCAL_1 >/dev/null 2>&1
 }
 do_status(){
     check_running
