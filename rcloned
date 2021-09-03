@@ -9,7 +9,9 @@
 # Description:       Enable rclone by daemon.
 ### END INIT INFO
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
- 
+#REMOTE注意必须和你的reclone name一致
+#LOCAL注意地址必须正确
+#配置完毕删除以上两行
 REMOTE='aliyunpan:/影视'
 LOCAL='/volume4/video/aliyunpan_video'
 CONFIG='/root/.config/rclone/rclone.conf'
